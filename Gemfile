@@ -12,7 +12,6 @@ gem 'puma', '~> 5.0'
 gem 'jbuilder', '~> 2.7'
 
 # UI
-gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 
