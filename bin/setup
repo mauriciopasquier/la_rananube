@@ -9,11 +9,11 @@ def system!(*args)
 end
 
 FileUtils.chdir APP_ROOT do
-  # This script is a way to set up or update your development environment automatically.
-  # This script is idempotent, so that you can run it at any time and get an expectable outcome.
-  # Add necessary setup steps to this file.
+  # Este script debería correrse para preparar el entorno de desarrollo automáticamente.
+  # Tiene que ser idempotente, o sea que no importa cuántas veces se corra o en
+  # qué momento, debería dejar el entorno de desarrollo bien configurado.
 
-  puts '== Installing dependencies =='
+  puts '== Instalando dependencias =='
   system! 'gem install bundler --conservative'
   system('bundle check') || system!('bundle install')
 
@@ -25,12 +25,19 @@ FileUtils.chdir APP_ROOT do
   #   FileUtils.cp 'config/database.yml.sample', 'config/database.yml'
   # end
 
-  puts "\n== Preparing database =="
+  puts "\n== Preparando la base de datos =="
   system! 'bin/rails db:prepare'
 
-  puts "\n== Removing old logs and tempfiles =="
+  puts "\n== Limpiando logs y archivos temporales =="
   system! 'bin/rails log:clear tmp:clear'
 
-  puts "\n== Restarting application server =="
-  system! 'bin/rails restart'
+  # Checkear que tengamos algo para correr el Procfile.
+  puts "\n== Detectando process managers =="
+  if (managers = `sh -c "command -v overmind hivemind foreman"`.split("\n")).any?
+    puts "\nIniciá los servicios de desarrollo con:"
+
+    managers.each { |manager| puts "\n#{manager.split('/').last} start" }
+  else
+    puts("\nDeberías instalar overmind u otro process manager para levantar los servicios")
+  end
 end
