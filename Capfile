@@ -10,6 +10,7 @@ install_plugin Capistrano::SCM::Git
 
 require 'capistrano/rbenv'
 require 'capistrano/bundler'
+require 'capistrano/webpacker/precompile'
 require 'capistrano/rails/migrations'
 
 # Servidor de aplicaciones. Debe estar después de rbenv.

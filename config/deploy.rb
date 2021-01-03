@@ -38,3 +38,6 @@ set :puma_init_active_record, true
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
+
+# Tareas extras.
+after 'deploy:updated', 'webpacker:precompile'
