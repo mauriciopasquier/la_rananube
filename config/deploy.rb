@@ -35,9 +35,11 @@ append :linked_files,
 # Puma.
 set :puma_preload_app, true
 set :puma_init_active_record, true
+set :systemd_service_name, 'rananube.service'
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
 # Tareas extras.
 after 'deploy:updated', 'webpacker:precompile'
+after 'deploy', 'deploy:restart'
