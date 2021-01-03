@@ -17,11 +17,20 @@ set :format_options, command_output: true, log_file: 'log/capistrano.log',
 set :rbenv_type, :user
 set :rbenv_ruby, File.read('.ruby-version').strip
 
-# Default value for :linked_files is []
-# append :linked_files, "config/database.yml"
+# rails.
+# Seleccionar la llave de las credenciales según el entorno.
+set :key_path, "config/credentials/#{fetch(:stage)}.key"
 
-# Default value for linked_dirs is []
-# append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
+append :linked_dirs,
+  'log',
+  'tmp/pids',
+  'tmp/cache',
+  'tmp/sockets',
+  'storage',
+  'public/packs'
+
+append :linked_files,
+  fetch(:key_path)
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
