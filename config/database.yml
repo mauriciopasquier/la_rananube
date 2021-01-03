@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: la_rananube_production
-  username: la_rananube
-  password: <%= ENV['LA_RANANUBE_DATABASE_PASSWORD'] %>
+  database: <%= Rails.application.credentials.dig(:db, :name) %>
+  username: <%= Rails.application.credentials.dig(:db, :user) %>
+  password: <%= Rails.application.credentials.dig(:db, :password) %>

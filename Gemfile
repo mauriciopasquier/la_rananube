@@ -46,6 +46,12 @@ group :development do
   # Analizadores de código.
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
+
+  # Deploy.
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-rbenv', require: false
+  gem 'capistrano3-puma', require: false
+  gem 'capistrano-webpacker-precompile', require: false
 end
 
 group :test do
