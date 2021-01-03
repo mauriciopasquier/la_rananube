@@ -15,6 +15,7 @@ require 'capistrano/rails/migrations'
 # Servidor de aplicaciones. Debe estar después de rbenv.
 require 'capistrano/puma'
 install_plugin Capistrano::Puma
+install_plugin Capistrano::Puma::Systemd
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
