@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="<%= I18n.locale %>">
   <head>
-    <title>La Rañanube</title>
+    <title><%= titulo_de_app %></title>
 
     <%# Requerido por bootstrap. %>
     <meta charset="utf-8">
@@ -15,6 +15,10 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'layouts/navbar' %>
+
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
   </body>
 </html>

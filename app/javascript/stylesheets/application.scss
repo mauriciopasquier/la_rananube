@@ -1,3 +1,7 @@
 // Manifest para que webpacker compile las stylesheets.
 
+// Cosas de las librerías.
 @import '~bootstrap/scss/bootstrap';
+
+// Cosas nuestras.
+@import 'layout';

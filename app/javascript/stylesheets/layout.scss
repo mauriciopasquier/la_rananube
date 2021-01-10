@@ -1,0 +1,57 @@
+// Estilos generales de layout.
+
+// Variables comunes.
+$navbar-height: 5rem;
+
+// Hacer distancia entre el contenido y la barra de navegación.
+body {
+  padding-top: $navbar-height;
+
+  nav.navbar {
+    height: $navbar-height;
+  }
+}
+
+// Estilos para el "brand".
+.navbar-brand {
+  font-size: 1.5rem;
+
+  a {
+    color: #fff;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+// Desde tamaño sm hacia abajo, convertir el menú en un panel "offcanvas".
+@include media-breakpoint-down(sm) {
+  .panel-offcanvas {
+    position: fixed;
+    top: $navbar-height;
+    bottom: 0;
+    left: 100%;
+    width: 100%;
+    padding-right: $navbar-padding-x;
+    padding-left: $navbar-padding-x;
+    overflow-y: auto;
+    visibility: hidden;
+    background-color: $dark;
+    transition: transform .3s ease-in-out, visibility .3s ease-in-out;
+    // Previene que bootstrap achique el panel mientras está desapareciendo,
+    // así tenemos una animación más fluída.
+    height: 100% !important;
+
+    &.show {
+      visibility: visible;
+      // Mover el panel a la derecha.
+      transform: translateX(-100%);
+    }
+
+    // Esta es la clase que bootstrap agrega mientras está colapsando el menú.
+    &.collapsing {
+      transition: transform .3s ease-in-out, visibility .3s ease-in-out;
+    }
+  }
+}
