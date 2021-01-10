@@ -28,6 +28,7 @@ Metrics/BlockLength:
   Exclude:
     - 'test/**/*'
     - 'config/routes.rb'
+    - 'config/environments/*'
 
 Metrics/ClassLength:
   Max: 120

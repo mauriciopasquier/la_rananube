@@ -16,6 +16,13 @@ gem 'rails-settings-cached'
 gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 
+# Autenticación
+gem 'devise'
+
+# I18n
+gem 'rails-i18n'
+gem 'devise-i18n'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
