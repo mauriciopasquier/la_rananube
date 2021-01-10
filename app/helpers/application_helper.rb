@@ -2,8 +2,8 @@
 module ApplicationHelper
   # Poner primero el título de página para que se vea en las tabs del
   # navegador.
-  def titulo_de_aplicacion
-    [titulo_de_pagina, 'La Rananube'].reject(&:blank?).join(' | ')
+  def titulo_de_app
+    [titulo_de_pagina, Setting.nombre_de_app].reject(&:blank?).join(' | ')
   end
 
   # Cada página que necesite un título debe definirlo.
