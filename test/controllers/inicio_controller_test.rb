@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class LandingControllerTest < ActionDispatch::IntegrationTest
+class InicioControllerTest < ActionDispatch::IntegrationTest
   describe '#index' do
-    it 'hay un landing' do
+    it 'hay un inicio' do
       get root_url
 
       must_respond_with :success
