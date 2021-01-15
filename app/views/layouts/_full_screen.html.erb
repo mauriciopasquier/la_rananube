@@ -1,0 +1,9 @@
+<%# Contenedor flex, centrado horizontalmente, cubre toda la pantalla. %>
+<div class="container full-screen d-flex justify-content-center">
+  <%# Con contenido centrado verticalmente %>
+  <div class="my-auto text-center col-6">
+    <%= yield %>
+
+    <%= render 'devise/shared/links' %>
+  </div>
+</div>

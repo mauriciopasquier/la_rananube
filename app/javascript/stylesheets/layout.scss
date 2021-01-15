@@ -1,7 +1,5 @@
 // Estilos generales de layout.
 
-// Variables comunes.
-$navbar-height: 5rem;
 
 // Hacer distancia entre el contenido y la barra de navegación.
 body {
@@ -54,4 +52,15 @@ body {
       transition: transform .3s ease-in-out, visibility .3s ease-in-out;
     }
   }
+}
+
+// Para páginas como el sign-in donde tenemos un sólo componente bien centrado.
+.full-screen {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  // Dejar siempre margen para no quedar debajo de la barra de navegación.
+  margin-top: $navbar-height;
 }

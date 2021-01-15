@@ -3,12 +3,12 @@
 <% if user_signed_in? %>
   <%= link_to destroy_user_session_path, method: :delete,
     class: 'logout nav-item nav-link', title: t('.sign_out') do %>
-    <span class="fa fa-sign-out-alt fa-fw"></span>
+    <span class="fas fa-sign-out-alt fa-fw"></span>
     <span class="d-md-none"><%= t('.sign_out') %></span>
   <% end %>
 <% else %>
   <%= link_to new_user_session_path, class: 'nav-item nav-link', title: t('.sign_in') do %>
-    <span class="fa fa-sign-in-alt fa-fw"></span>
+    <span class="fas fa-sign-in-alt fa-fw"></span>
     <span class="d-md-none"><%= t('.sign_in') %></span>
   <% end %>
 <% end %>
