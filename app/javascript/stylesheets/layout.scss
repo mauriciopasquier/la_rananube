@@ -3,7 +3,7 @@
 
 // Hacer distancia entre el contenido y la barra de navegación.
 body {
-  padding-top: $navbar-height;
+  padding-top: $navbar-height + 0.5rem;
 
   nav.navbar {
     height: $navbar-height;
