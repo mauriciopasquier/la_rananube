@@ -27,6 +27,14 @@
       <div class="navbar-nav">
         <%= render 'layouts/menu' %>
       </div>
+
+      <div class="dropdown-divider"></div>
+
+      <%# Menú de sesión (con íconos). %>
+      <div class="navbar-nav">
+        <%# Entrar/Salir. %>
+        <%= render 'devise/menu/session_link' %>
+      </div>
     </div>
   </div>
 </nav>

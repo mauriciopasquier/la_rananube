@@ -1,0 +1,25 @@
+<ul class="fa-ul text-left text-warning">
+  <%- if controller_name != 'sessions' %>
+    <li>
+      <span class="fas fa-sign-out-alt fa-li"></span>
+      <%= link_to t('.sign_in'), new_session_path(resource_name), class: 'text-warning' %>
+    </li>
+  <% end %>
+
+  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+    <li>
+      <span class="fas fa-lock fa-li"></span>
+      <%= link_to t('.forgot_your_password'), new_password_path(resource_name),
+        class: 'text-warning' %>
+    </li>
+  <% end %>
+
+  <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+    <li>
+      <span class="fas fa-envelope fa-li"></span>
+      <%= link_to t('.didn_t_receive_confirmation_instructions'),
+        new_confirmation_path(resource_name),
+        class: 'text-warning' %>
+    </li>
+  <% end %>
+</ul>

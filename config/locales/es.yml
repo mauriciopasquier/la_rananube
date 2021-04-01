@@ -1,0 +1,7 @@
+---
+es:
+  devise:
+    menu:
+      session_link:
+        sign_in: Entrar
+        sign_out: Salir

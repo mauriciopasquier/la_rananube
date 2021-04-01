@@ -28,6 +28,7 @@ Metrics/BlockLength:
   Exclude:
     - 'test/**/*'
     - 'config/routes.rb'
+    - 'config/environments/*'
 
 Metrics/ClassLength:
   Max: 120
@@ -38,6 +39,9 @@ Metrics/MethodLength:
   Max: 15
   Exclude:
     - 'db/migrate/*'
+
+Rails/ContentTag:
+  Enabled: false
 
 Rails/NotNullColumn:
   Enabled: false

@@ -14,7 +14,7 @@ FileUtils.chdir APP_ROOT do
   # qué momento, debería dejar el entorno de desarrollo bien configurado.
 
   puts '== Instalando dependencias =='
-  system! 'gem install bundler --conservative'
+  system! 'gem install bundler mailcatcher --conservative'
   system('bundle check') || system!('bundle install')
 
   # Install JavaScript dependencies

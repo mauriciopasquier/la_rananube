@@ -1,0 +1,21 @@
+// Variables comunes.
+
+// Layout.
+$navbar-height: 5rem;
+
+// Colores generados con http://colormind.io/bootstrap a partir del
+// red orange de laranatela.com.
+$red-orange: #fa402e; // Primary
+$baltic-sea: #25232d; // Info
+$sycamore: #808e46; // Success
+$flamenco: #fe7e0e; // Warning
+$pomegranate: #f44336; // Danger
+
+// Aplicamos el theme.
+$theme-colors: (
+  "primary": $red-orange,
+  "info": $baltic-sea,
+  "success": $sycamore,
+  "warning": $flamenco,
+  "danger": $pomegranate
+);
