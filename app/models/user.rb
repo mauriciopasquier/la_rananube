@@ -3,4 +3,6 @@ class User < ApplicationRecord
   # No permitir registro manual.
   devise :database_authenticatable, :recoverable, :rememberable, :validatable,
     :confirmable, :trackable
+
+  validates :nombre, presence: true
 end
