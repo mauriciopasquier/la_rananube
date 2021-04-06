@@ -31,6 +31,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
   gem 'minitest-rails'
+  # Factories en vez de fixtures.
+  gem 'factory_bot_rails'
 
   # Usar pry como consola.
   gem 'pry-rails'
