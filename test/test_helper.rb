@@ -16,3 +16,10 @@ class ActiveSupport::TestCase
   # variable de entorno PARALLEL_WORKERS.
   parallelize workers: :number_of_processors
 end
+
+class ActionDispatch::IntegrationTest
+  # Helpers para loguear y desloguear.
+  include Devise::Test::IntegrationHelpers
+  # Expectations de mailers.
+  include Minitest::Rails::Expectations::ActionMailer
+end
