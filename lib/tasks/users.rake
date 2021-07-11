@@ -7,12 +7,13 @@
 namespace :rananube do
   namespace :db do
     desc 'Genera un usuarie o actualiza el password'
-    task :user, [:email, :password] => :logger do |_, args|
+    task :user, [:email, :password, :nombre] => :logger do |_, args|
       @user = User.find_or_initialize_by(
         email: args[:email]
       )
 
       @user.password = args[:password]
+      @user.nombre = args[:nombre]
       @user.confirm
 
       if @user.save
