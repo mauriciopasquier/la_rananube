@@ -5,21 +5,22 @@ ruby '3.0.0'
 # No es más default en ruby 3.0.0.
 gem 'rexml'
 
-# Backend
+# Backend.
 gem 'rails', '~> 6.1.0'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'jbuilder', '~> 2.7'
 gem 'rails-settings-cached'
 
-# UI
+# UI.
 gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 
-# Autenticación
+# Autenticación, autorización.
 gem 'devise'
+gem 'enumerize'
 
-# I18n
+# I18n.
 gem 'rails-i18n'
 gem 'devise-i18n'
 

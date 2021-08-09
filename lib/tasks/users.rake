@@ -14,6 +14,8 @@ namespace :rananube do
 
       @user.password = args[:password]
       @user.nombre = args[:nombre]
+      # Si es el primer usuarie le hacemos admin.
+      @user.roles = [:administracion] if User.none?
       @user.confirm
 
       if @user.save

@@ -6,6 +6,11 @@ es:
       session_link:
         sign_in: Entrar
         sign_out: Salir
+  enumerize:
+    user:
+      roles:
+        administracion: Administración
+        clientes: Clientes
   users:
     update:
       notice: ¡Cambios guardados!
