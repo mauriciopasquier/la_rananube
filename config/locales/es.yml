@@ -1,7 +1,15 @@
 ---
 es:
+  confirmacion: ¿Seguro? Es irreversible
   devise:
     menu:
       session_link:
         sign_in: Entrar
         sign_out: Salir
+  users:
+    update:
+      notice: ¡Cambios guardados!
+    create:
+      notice: ¡Usuario creado!
+    destroy:
+      notice: ¡Usuario eliminado!

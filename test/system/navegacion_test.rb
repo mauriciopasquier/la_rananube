@@ -1,7 +1,7 @@
 require 'application_system_test_case'
 
 class NavegacionTest < ApplicationSystemTestCase
-  let(:user) { create :user, :confirmade }
+  let(:usuarie) { create :user, :confirmade }
 
   describe 'Anónimamente' do
     before { visit root_path }
@@ -12,15 +12,15 @@ class NavegacionTest < ApplicationSystemTestCase
   end
 
   describe 'Logueade' do
-    before { login user }
+    before { login usuarie }
 
     it 'hay menú de Administración' do
       _(page).must_have_content 'Administración'
     end
 
     it 'hay menú de Usuarixs' do
-      click_link 'Administración'
-      click_link 'Usuarixs'
+      click_on 'Administración'
+      click_on 'Usuarios'
 
       _(page).must_have_current_path users_path
     end

@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
+    # TODO, Agregar paginación.
     @users = User.all
   end
 
@@ -21,7 +22,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'FIXME Fuser was successfully created.' }
+        format.html { redirect_to users_path, notice: t('.notice') }
       else
         format.html { render :new }
       end
@@ -31,7 +32,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'FIXME Fuser was successfully updated.' }
+        format.html { redirect_to @user, notice: t('.notice') }
       else
         format.html { render :edit }
       end
@@ -41,7 +42,7 @@ class UsersController < ApplicationController
   def destroy
     respond_to do |format|
       if @user.destroy
-        format.html { redirect_to fusers_url, notice: 'Fuser was successfully destroyed.' }
+        format.html { redirect_to users_url, notice: t('.notice') }
       else
         format.html { redirect_to users_path }
       end

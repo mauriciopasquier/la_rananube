@@ -1,0 +1,19 @@
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<% if @user.unconfirmed_email? %>
+  <p>
+    <strong>Nuevo email (todavía sin confirmar):</strong>
+    <%= @user.unconfirmed_email %>
+  </p>
+<% end %>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @user.nombre %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
