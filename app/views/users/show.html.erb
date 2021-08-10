@@ -1,19 +1,26 @@
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<% if @user.unconfirmed_email? %>
+<div class="usuarie">
   <p>
-    <strong>Nuevo email (todavía sin confirmar):</strong>
-    <%= @user.unconfirmed_email %>
+    <strong>Email:</strong>
+    <%= @user.email %>
   </p>
-<% end %>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @user.nombre %>
-</p>
+  <% if @user.unconfirmed_email? %>
+    <p>
+      <strong>Nuevo email (todavía sin confirmar):</strong>
+      <%= @user.unconfirmed_email %>
+    </p>
+  <% end %>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  <p>
+    <strong>Nombre:</strong>
+    <%= @user.nombre %>
+  </p>
+
+  <p>
+    <strong>Roles:</strong>
+    <%= @user.roles.map(&:text).join(', ') %>
+  </p>
+
+  <%= link_to 'Edit', edit_user_path(@user) %> |
+  <%= link_to 'Back', users_path %>
+</div>

@@ -1,0 +1,20 @@
+<%# Identificador único de cada fila, útil en los tests. %>
+<%= form_with(model: user) do |f| %>
+  <tr id=<%= "user-#{user.id}" %>>
+    <td><%= user.email %></td>
+    <td><%= user.nombre %></td>
+
+    <%= fields_for :roles do |fr| %>
+      <% User.roles.values.each do |rol| %>
+        <%# Impedir quitarse a unx mismx el rol de administración. %>
+        <% disabled = rol == :administracion && user == current_user %>
+
+        <td><%= fr.check_box rol, title: rol.text, checked: user.roles.include?(rol), disabled: disabled %></td>
+      <% end %>
+    <% end %>
+
+    <td><%= link_to 'Show', user %></td>
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: t('confirmacion') } %></td>
+  </tr>
+<% end %>

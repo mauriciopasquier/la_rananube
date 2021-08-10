@@ -9,5 +9,14 @@ FactoryBot.define do
     trait :confirmade do
       confirmed_at { Date.yesterday }
     end
+
+    # Cargados post inicialización porque pueden ser múltiples roles.
+    trait :administracion do
+      after(:build, :stub) { |user| user.roles << :administracion }
+    end
+
+    trait :clientes do
+      after(:build, :stub) { |user| user.roles << :clientes }
+    end
   end
 end
