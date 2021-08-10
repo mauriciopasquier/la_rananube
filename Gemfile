@@ -13,6 +13,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'rails-settings-cached'
 
 # UI.
+gem 'sass-rails'
+gem 'importmap-rails'
 gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 
