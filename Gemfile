@@ -15,6 +15,7 @@ gem 'rails-settings-cached'
 # UI.
 gem 'sass-rails'
 gem 'importmap-rails'
+gem 'stimulus-rails'
 gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 
