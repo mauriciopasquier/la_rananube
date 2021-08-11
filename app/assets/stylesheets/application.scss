@@ -1,0 +1,16 @@
+// Manifest para que las stylesheets.
+
+// Nuestras variables.
+@import 'variables';
+
+// Cosas de las librerías.
+// Font Awesome.
+$fa-font-path: '@fortawesome/fontawesome-free/webfonts';
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+@import '@fortawesome/fontawesome-free/scss/solid';
+
+// Bootstrap.
+@import 'bootstrap/scss/bootstrap';
+
+// Cosas nuestras.
+@import 'layout';
