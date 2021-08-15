@@ -5,6 +5,9 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   # Helpers para inicializar modelos en los tests.
   include FactoryBot::Syntax::Methods
 
+  # No mostrar el log de Puma en stdio.
+  Capybara.server = :puma, { Silent: true }
+
   driven_by :selenium, using: :headless_chrome
 
   # Cosas a configurar antes de cada test.
