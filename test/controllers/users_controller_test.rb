@@ -4,7 +4,7 @@ describe UsersController do
   let(:usuarie) { create :user, :confirmade, :administracion }
   let(:otre_usuarie) { create :user }
 
-  describe 'con permisos' do
+  describe 'con permisos de administración' do
     before { sign_in usuarie }
 
     it 'accede al index' do
@@ -90,7 +90,7 @@ describe UsersController do
     end
   end
 
-  describe 'sin permisos' do
+  describe 'sin permisos de administración' do
     it 'no accede a vistas restringidas' do
       _(otre_usuarie).must_be :persisted?
 
@@ -122,6 +122,14 @@ describe UsersController do
       delete user_path(otre_usuarie)
 
       must_redirect_to root_path
+    end
+
+    it 'no modifica roles' do
+      patch roles_user_path(otre_usuarie),
+        params: { roles: { clientes: true } }, as: :json
+
+      must_respond_with :forbidden
+      _(otre_usuarie.reload.roles).wont_be :clientes?
     end
   end
 end

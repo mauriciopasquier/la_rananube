@@ -22,6 +22,7 @@ gem 'turbolinks', '~> 5'
 # Autenticación, autorización.
 gem 'devise'
 gem 'enumerize'
+gem 'pundit'
 
 # I18n.
 gem 'rails-i18n'
