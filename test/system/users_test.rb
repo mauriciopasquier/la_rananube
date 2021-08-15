@@ -1,10 +1,10 @@
 require 'application_system_test_case'
 
 class UsersTest < ApplicationSystemTestCase
-  let(:usuarie) { create :user, :confirmade }
+  let(:usuarie) { create :user, :confirmade, :administracion }
   let(:otre_usuarie) { create :user }
 
-  describe 'Logueade' do
+  describe 'con permisos de administracion' do
     before { login usuarie }
 
     it 'lista les usuaries' do

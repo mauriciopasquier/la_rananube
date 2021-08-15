@@ -3,7 +3,7 @@ require 'application_system_test_case'
 class SessionsTest < ApplicationSystemTestCase
   let(:user) { create :user, :confirmade }
 
-  describe 'Anónimamente' do
+  describe 'anónimamente' do
     it 'permite loguearse persistentemente' do
       visit root_path
 
@@ -56,7 +56,7 @@ class SessionsTest < ApplicationSystemTestCase
     end
   end
 
-  describe 'Logueade' do
+  describe 'logueade' do
     before { login user }
 
     it 'permite desloguearse' do

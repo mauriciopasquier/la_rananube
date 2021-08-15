@@ -1,27 +1,25 @@
 # Controlador para administración de usuarixs.
 class UsersController < ApplicationController
-  before_action :set_user, only: [
-    :show, :edit, :update, :destroy, :roles
-  ]
-  before_action :validar_roles, only: :roles
+  before_action :set_user, except: :index
 
   def index
+    authorize User
+
     # TODO, Agregar paginación.
-    @users = User.all
+    @users = policy_scope(User)
   end
 
   def show
   end
 
   def new
-    @user = User.new
   end
 
   def edit
   end
 
   def create
-    @user = User.new(user_params)
+    @user.assign_attributes user_params
 
     respond_to do |format|
       if @user.save
@@ -43,12 +41,14 @@ class UsersController < ApplicationController
   end
 
   def roles
+    raise Pundit::NotAuthorizedError, t('sin_autorizacion') unless roles_validos?
+
     roles_params.each do |rol, asignado|
       ActiveModel::Type::Boolean.new.cast(asignado) ? @user.roles << rol : @user.roles.delete(rol)
     end
 
     respond_to do |format|
-      if @roles_validos && @user.save
+      if @user.save
         format.json { render json: { notice: t('.notice') }, status: :ok }
       else
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -70,7 +70,12 @@ class UsersController < ApplicationController
 
   # Cargar le usuarie desde los params.
   def set_user
-    @user = User.find(params[:id])
+    @user =
+      if params[:id].present?
+        authorize User.find(params[:id])
+      else
+        authorize User.new
+      end
   end
 
   # Parámetros para creación de usuarixs por admins.
@@ -86,7 +91,7 @@ class UsersController < ApplicationController
   end
 
   # Impedir modificarse a unx mismx el rol de administración.
-  def validar_roles
-    @roles_validos = !(roles_params.include?(:administracion) && @user == current_user)
+  def roles_validos?
+    !(roles_params.include?(:administracion) && @user == current_user)
   end
 end

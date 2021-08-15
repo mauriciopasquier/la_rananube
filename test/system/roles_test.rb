@@ -4,7 +4,7 @@ class RolesTest < ApplicationSystemTestCase
   let(:usuarie) { create :user, :confirmade, :administracion }
   let(:otre_usuarie) { create :user }
 
-  describe 'Logueade' do
+  describe 'logueade' do
     before { login usuarie }
 
     it 'no se puede sacar la administración' do

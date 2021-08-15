@@ -3,7 +3,7 @@ require 'application_system_test_case'
 class NavegacionTest < ApplicationSystemTestCase
   let(:usuarie) { create :user, :confirmade }
 
-  describe 'Anónimamente' do
+  describe 'anónimamente' do
     before { visit root_path }
 
     it 'no hay menú de Administración' do
@@ -11,7 +11,7 @@ class NavegacionTest < ApplicationSystemTestCase
     end
   end
 
-  describe 'Logueade' do
+  describe 'logueade' do
     before { login usuarie }
 
     it 'hay menú de Administración' do

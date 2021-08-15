@@ -2,7 +2,7 @@ require 'test_helper'
 
 describe UsersController do
   let(:usuarie) { create :user, :confirmade, :administracion }
-  let(:otre_usuarie) { create :user }
+  let(:otre_usuarie) { create :user, :confirmade }
 
   describe 'con permisos de administración' do
     before { sign_in usuarie }
@@ -85,15 +85,15 @@ describe UsersController do
       patch roles_user_path(usuarie),
         params: { roles: { administracion: false } }, as: :json
 
-      must_respond_with :unprocessable_entity
+      must_respond_with :forbidden
       _(usuarie.reload.roles).must_be :administracion?
     end
   end
 
   describe 'sin permisos de administración' do
-    it 'no accede a vistas restringidas' do
-      _(otre_usuarie).must_be :persisted?
+    before { sign_in otre_usuarie }
 
+    it 'no accede a vistas restringidas' do
       [
         users_path,
         new_user_path,
@@ -102,7 +102,7 @@ describe UsersController do
       ].each do |ruta_restringida|
         get ruta_restringida
 
-        must_redirect_to root_path
+        must_redirect_to root_path, "Falla en #{ruta_restringida}"
       end
     end
 
@@ -122,6 +122,49 @@ describe UsersController do
       delete user_path(otre_usuarie)
 
       must_redirect_to root_path
+    end
+
+    it 'no modifica roles' do
+      patch roles_user_path(otre_usuarie),
+        params: { roles: { clientes: true } }, as: :json
+
+      must_respond_with :forbidden
+      _(otre_usuarie.reload.roles).wont_be :clientes?
+    end
+  end
+
+  describe 'anónimamente' do
+    it 'no accede a vistas restringidas' do
+      _(otre_usuarie).must_be :persisted?
+
+      [
+        users_path,
+        new_user_path,
+        user_path(otre_usuarie),
+        edit_user_path(otre_usuarie)
+      ].each do |ruta_restringida|
+        get ruta_restringida
+
+        must_redirect_to new_user_session_path, "Falla en #{ruta_restringida}"
+      end
+    end
+
+    it 'no actualiza usuaries' do
+      put user_path(otre_usuarie), params: { user: attributes_for(:user) }
+
+      must_redirect_to new_user_session_path
+    end
+
+    it 'no crea usuaries' do
+      post users_path, params: { user: attributes_for(:user) }
+
+      must_redirect_to new_user_session_path
+    end
+
+    it 'no destruye usuaries' do
+      delete user_path(otre_usuarie)
+
+      must_redirect_to new_user_session_path
     end
 
     it 'no modifica roles' do

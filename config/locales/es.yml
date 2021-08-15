@@ -11,6 +11,7 @@ es:
       roles:
         administracion: Administración
         clientes: Clientes
+  sin_autorizacion: No tenés permisos para realizar esta acción.
   users:
     update:
       notice: Cambios guardados
