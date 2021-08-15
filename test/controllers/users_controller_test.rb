@@ -1,7 +1,7 @@
 require 'test_helper'
 
 describe UsersController do
-  let(:usuarie) { create :user, :confirmade }
+  let(:usuarie) { create :user, :confirmade, :administracion }
   let(:otre_usuarie) { create :user }
 
   describe 'con permisos' do
@@ -62,6 +62,31 @@ describe UsersController do
       end).must_differ 'User.count', -1
 
       must_redirect_to users_path
+    end
+
+    it 'modifica roles' do
+      _(otre_usuarie.roles).wont_be :administracion?
+
+      patch roles_user_path(otre_usuarie),
+        params: { roles: { administracion: true } }, as: :json
+
+      must_respond_with :success
+      _(otre_usuarie.reload.roles).must_be :administracion?
+
+      patch roles_user_path(otre_usuarie),
+        params: { roles: { administracion: false } }, as: :json
+
+      _(otre_usuarie.reload.roles).wont_be :administracion?
+    end
+
+    it 'no puede sacarse su rol de administración' do
+      _(usuarie.roles).must_be :administracion?
+
+      patch roles_user_path(usuarie),
+        params: { roles: { administracion: false } }, as: :json
+
+      must_respond_with :unprocessable_entity
+      _(usuarie.reload.roles).must_be :administracion?
     end
   end
 

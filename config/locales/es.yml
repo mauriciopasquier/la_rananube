@@ -13,8 +13,10 @@ es:
         clientes: Clientes
   users:
     update:
-      notice: ¡Cambios guardados!
+      notice: Cambios guardados
     create:
-      notice: ¡Usuario creado!
+      notice: Usuario creado
     destroy:
-      notice: ¡Usuario eliminado!
+      notice: Usuario eliminado
+    roles:
+      notice: Rol agregado

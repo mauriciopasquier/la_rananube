@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   # Gestión de usuarixs.
-  resources :users
+  resources :users do
+    patch :roles, on: :member
+  end
 end

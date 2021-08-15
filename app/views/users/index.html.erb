@@ -1,24 +1,16 @@
 <h1>Users</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Email</th>
-      <th>Nombre</th>
+<div class="row">
+  <div class="col">Email</div>
+  <div class="col">Nombre</div>
 
-      <% User.roles.values.map(&:text).each do |rol| %>
-        <th><%= rol %></th>
-      <% end %>
+  <% User.roles.values.map(&:text).each do |rol| %>
+    <div class="col"><%= rol %></div>
+  <% end %>
 
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <div class="col"></div>
+</div>
 
-  <tbody>
-    <%= render @users %>
-  </tbody>
-</table>
-
-<br>
+<%= render @users %>
 
 <%= link_to 'New User', new_user_path %>

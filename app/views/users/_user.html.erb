@@ -1,20 +1,29 @@
 <%# Identificador único de cada fila, útil en los tests. %>
-<%= form_with(model: user) do |f| %>
-  <tr id=<%= "user-#{user.id}" %>>
-    <td><%= user.email %></td>
-    <td><%= user.nombre %></td>
+<div class="row" id=<%= "user-#{user.id}" %>>
+  <div class="col">
+    <%= user.email %>
+  </div>
 
-    <%= fields_for :roles do |fr| %>
-      <% User.roles.values.each do |rol| %>
-        <%# Impedir quitarse a unx mismx el rol de administración. %>
-        <% disabled = rol == :administracion && user == current_user %>
+  <div class="col">
+    <%= user.nombre %>
+  </div>
 
-        <td><%= fr.check_box rol, title: rol.text, checked: user.roles.include?(rol), disabled: disabled %></td>
-      <% end %>
-    <% end %>
+  <% User.roles.values.each do |rol| %>
+    <%# Impedir quitarse a unx mismx el rol de administración. %>
+    <% disabled = rol == :administracion && user == current_user %>
 
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: t('confirmacion') } %></td>
-  </tr>
-<% end %>
+    <div class="col"
+      data-controller="roles" data-roles-url-value="<%= roles_user_path(user) %>">
+
+      <%= check_box_tag "roles[#{rol}]", '1', user.roles.include?(rol),
+        title: rol.text, disabled: disabled,
+        data: { action: 'roles#update', roles_target: 'checkbox' } %>
+    </div>
+  <% end %>
+
+  <div class="col">
+    <%= link_to 'Show', user %>
+    <%= link_to 'Edit', edit_user_path(user) %>
+    <%= link_to 'Destroy', user, method: :delete, data: { confirm: t('confirmacion') } %>
+  </div>
+</div>

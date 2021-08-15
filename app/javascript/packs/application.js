@@ -18,3 +18,5 @@ document.addEventListener('turbolinks:load', () => {
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+import 'controllers'
