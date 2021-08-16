@@ -2,6 +2,10 @@
 class ApplicationController < ActionController::Base
   # Sistema de permisos a través de clases de reglas ("policies").
   include Pundit
+  # Paginación.
+  include Pagy::Backend
+
+  # Interceptar todos los errores de autorización.
   rescue_from Pundit::NotAuthorizedError, with: :sin_autorizacion
 
   private

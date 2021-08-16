@@ -18,6 +18,7 @@ gem 'importmap-rails'
 gem 'stimulus-rails'
 gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
+gem 'pagy'
 
 # Autenticación, autorización.
 gem 'devise'

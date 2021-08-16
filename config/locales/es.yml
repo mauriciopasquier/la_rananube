@@ -11,6 +11,9 @@ es:
       roles:
         administracion: Administración
         clientes: Clientes
+  inicio:
+    index:
+      titulo: Inicio
   sin_autorizacion: No tenés permisos para realizar esta acción.
   users:
     update:

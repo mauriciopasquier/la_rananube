@@ -1,12 +1,15 @@
-# Controlador para administración de usuarixs.
+# Controlador para administración de usuaries.
 class UsersController < ApplicationController
   before_action :set_user, except: :index
 
   def index
     authorize User
 
-    # TODO, Agregar paginación.
-    @users = policy_scope(User)
+    # Autorización.
+    @users = policy_scope(User).order(created_at: :asc)
+
+    # Paginación.
+    @pagy, @users = pagy(@users)
   end
 
   def show
@@ -78,7 +81,7 @@ class UsersController < ApplicationController
       end
   end
 
-  # Parámetros para creación de usuarixs por admins.
+  # Parámetros para creación de usuaries por admins.
   def user_params
     params.require(:user).permit(
       :email, :password, :password_confirmation, :nombre, roles: []

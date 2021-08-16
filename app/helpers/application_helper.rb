@@ -1,5 +1,8 @@
 # Superclase para todos los helpers.
 module ApplicationHelper
+  # Paginación.
+  include Pagy::Frontend
+
   # Poner primero el título de página para que se vea en las tabs del
   # navegador.
   def titulo_de_app
