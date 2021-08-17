@@ -58,7 +58,7 @@
 # Bootstrap extra: Add nav, nav_js and combo_nav_js helpers and templates for
 # Bootstrap pagination
 # See https://ddnexus.github.io/pagy/extras/bootstrap
-# require 'pagy/extras/bootstrap'
+require 'pagy/extras/bootstrap'
 
 # Bulma extra: Add nav, nav_js and combo_nav_js helpers and templates for Bulma pagination
 # See https://ddnexus.github.io/pagy/extras/bulma
@@ -115,8 +115,8 @@
 
 # Overflow extra: Allow for easy handling of overflowing pages
 # See https://ddnexus.github.io/pagy/extras/overflow
-# require 'pagy/extras/overflow'
-# Pagy::VARS[:overflow] = :empty_page    # default  (other options: :last_page and :exception)
+require 'pagy/extras/overflow'
+Pagy::VARS[:overflow] = :last_page
 
 # Metadata extra: Provides the pagination metadata to Javascript frameworks
 # like Vue.js, react.js, etc.
@@ -130,7 +130,7 @@
 
 # Trim extra: Remove the page=1 param from links
 # See https://ddnexus.github.io/pagy/extras/trim
-# require 'pagy/extras/trim'
+require 'pagy/extras/trim'
 # after requiring it will trim by default
 # set to false if you want to make :enable_trim_extra an opt-in variable
 # Pagy::VARS[:enable_trim_extra] = false # default true
@@ -151,7 +151,7 @@
 #
 # Examples:
 # load the "de" built-in locale:
-# Pagy::I18n.load(locale: 'de')
+Pagy::I18n.load(locale: 'es')
 #
 # load the "de" locale defined in the custom file at :filepath:
 # Pagy::I18n.load(locale: 'de', filepath: 'path/to/pagy-de.yml')
