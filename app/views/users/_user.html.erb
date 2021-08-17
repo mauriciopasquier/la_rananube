@@ -1,10 +1,10 @@
 <%# Identificador único de cada fila, útil en los tests. %>
 <div class="row" id=<%= "user-#{user.id}" %>>
-  <div class="col">
+  <div class="col-lg">
     <%= user.email %>
   </div>
 
-  <div class="col">
+  <div class="col-lg">
     <%= user.nombre %>
   </div>
 
@@ -12,7 +12,7 @@
     <%# Impedir quitarse a unx mismx el rol de administración. %>
     <% disabled = rol == :administracion && user == current_user %>
 
-    <div class="col"
+    <div class="col-lg-2"
       data-controller="roles" data-roles-url-value="<%= roles_user_path(user) %>">
 
       <%= check_box_tag "roles[#{rol}]", '1', user.roles.include?(rol),
@@ -21,9 +21,18 @@
     </div>
   <% end %>
 
-  <div class="col">
-    <%= link_to 'Show', user %>
-    <%= link_to 'Edit', edit_user_path(user) %>
-    <%= link_to 'Destroy', user, method: :delete, data: { confirm: t('confirmacion') } %>
+  <div class="col-lg-2">
+    <%= link_to user, title: t('acciones.show') do %>
+      <span class="fas fa-eye fa-fw"></span>
+    <% end %>
+
+    <%= link_to edit_user_path(user), title: t('acciones.edit') do %>
+      <span class="fas fa-edit fa-fw"></span>
+    <% end %>
+
+    <%= link_to user, title: t('acciones.destroy'), method: :delete,
+          data: { confirm: t('confirmacion') } do %>
+      <span class="fas fa-trash fa-fw"></span>
+    <% end %>
   </div>
 </div>

@@ -1,18 +1,26 @@
 <% content_for(:titulo_de_pagina) { User.model_name.human.pluralize } %>
 
-<%== pagy_bootstrap_nav(@pagy) %>
+<div class="row">
+  <div class="col-lg">
+    <%== pagy_bootstrap_nav(@pagy) %>
+  </div>
+</div>
 
 <div class="row">
-  <div class="col">Email</div>
-  <div class="col">Nombre</div>
+  <div class="col-lg">Email</div>
+  <div class="col-lg">Nombre</div>
 
   <% User.roles.values.map(&:text).each do |rol| %>
-    <div class="col"><%= rol %></div>
+    <div class="col-lg-2"><%= rol %></div>
   <% end %>
 
-  <div class="col"></div>
+  <div class="col-lg-2"></div>
 </div>
 
 <%= render @users %>
 
-<%= link_to 'New User', new_user_path %>
+<div class="row">
+  <div class="col-lg">
+    <%= link_to 'New User', new_user_path %>
+  </div>
+</div>

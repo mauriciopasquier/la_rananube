@@ -1,5 +1,9 @@
 ---
 es:
+  acciones:
+    destroy: Eliminar
+    edit: Editar
+    show: Ver
   confirmacion: ¿Seguro? Es irreversible
   devise:
     menu:
