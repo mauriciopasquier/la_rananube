@@ -43,8 +43,10 @@ class UsersTest < ApplicationSystemTestCase
       visit users_path
 
       within "#user-#{otre_usuarie.id}" do
-        click_on 'Edit'
+        click_on I18n.t('acciones.edit')
       end
+
+      _(page).must_have_current_path edit_user_path(otre_usuarie)
 
       user_params = attributes_for :user
       fill_in User.human_attribute_name(:email), with: user_params[:email]
@@ -64,7 +66,7 @@ class UsersTest < ApplicationSystemTestCase
 
       within "#user-#{otre_usuarie.id}" do
         page.accept_confirm do
-          click_on 'Destroy'
+          click_on I18n.t('acciones.destroy')
         end
       end
 

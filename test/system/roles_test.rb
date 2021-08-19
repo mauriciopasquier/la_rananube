@@ -23,7 +23,7 @@ class RolesTest < ApplicationSystemTestCase
       within "#user-#{otre_usuarie.id}" do
         check name: 'roles[administracion]'
         check name: 'roles[clientes]'
-        click_on 'Show'
+        click_on I18n.t('acciones.show')
       end
 
       _(page).must_have_current_path user_path(otre_usuarie)
