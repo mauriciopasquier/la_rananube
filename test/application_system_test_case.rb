@@ -24,7 +24,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   def login(user)
     visit new_user_session_path
 
-    within 'form#new_user' do
+    within 'form.login' do
       fill_in User.human_attribute_name(:email), with: user.email
       fill_in User.human_attribute_name(:password), with: user.password
     end

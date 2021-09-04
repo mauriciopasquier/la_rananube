@@ -1,7 +1,7 @@
 <%= render layout: 'layouts/full_screen' do %>
   <h1><%= t('.sign_in') %></h1>
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= form_with(model: resource, url: session_path(resource_name), class: 'login') do |f| %>
     <div class="form-group">
       <%= f.label :email, class: 'sr-only' %>
       <%= f.email_field :email, autofocus: true, autocomplete: 'email',
