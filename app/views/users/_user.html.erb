@@ -21,7 +21,8 @@
     </div>
   <% end %>
 
-  <div class="col-lg-2">
+  <%# Alinear los botones a la derecha. %>
+  <div class="col-lg-1 d-flex justify-content-end">
     <%= link_to user, title: t('acciones.show') do %>
       <span class="fas fa-eye fa-fw"></span>
     <% end %>
