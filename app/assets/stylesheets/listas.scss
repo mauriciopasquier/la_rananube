@@ -1,0 +1,13 @@
+// Estilos para las listas de cosas (index, etc).
+
+.lista {
+  .encabezado {
+    margin-bottom: 0.5rem; 
+  }
+
+  // La primera fila es el encabezado, entonces even (2) cuenta como la primer
+  // fila de datos.
+  .item:nth-child(even) {
+    background-color: #f5f5f5;
+  }
+}

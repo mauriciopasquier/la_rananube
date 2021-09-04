@@ -1,26 +1,28 @@
 <% content_for(:titulo_de_pagina) { User.model_name.human.pluralize } %>
 
 <div class="row">
-  <div class="col-lg">
+  <% if policy(User).new? %>
+    <div class="col-lg">
+      <%= link_to t('.new'), new_user_path, class: 'btn btn-outline-primary' %>
+    </div>
+  <% end %>
+
+  <div class="col-lg-2">
     <%== pagy_bootstrap_nav(@pagy) %>
   </div>
 </div>
 
-<div class="row">
-  <div class="col-lg">Email</div>
-  <div class="col-lg">Nombre</div>
+<div class="lista">
+  <div class="row encabezado lead">
+    <div class="col-lg"><%= User.human_attribute_name(:email) %></div>
+    <div class="col-lg"><%= User.human_attribute_name(:nombre) %></div>
 
-  <% User.roles.values.map(&:text).each do |rol| %>
-    <div class="col-lg-2"><%= rol %></div>
-  <% end %>
+    <% User.roles.values.map(&:text).each do |rol| %>
+      <div class="col-lg-2"><%= rol %></div>
+    <% end %>
 
-  <div class="col-lg-1 d-flex justify-content-end"></div>
-</div>
-
-<%= render @users %>
-
-<div class="row">
-  <div class="col-lg">
-    <%= link_to 'New User', new_user_path %>
+    <div class="col-lg-1 d-flex justify-content-end"></div>
   </div>
+
+  <%= render @users %>
 </div>

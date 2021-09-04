@@ -20,6 +20,8 @@ es:
       titulo: Inicio
   sin_autorizacion: No tenés permisos para realizar esta acción.
   users:
+    index:
+      new: Nuevo Usuario
     update:
       notice: Cambios guardados
     create:

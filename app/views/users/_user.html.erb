@@ -1,5 +1,5 @@
 <%# Identificador único de cada fila, útil en los tests. %>
-<div class="row" id=<%= "user-#{user.id}" %>>
+<div class="row item" id=<%= "user-#{user.id}" %>>
   <div class="col-lg">
     <%= user.email %>
   </div>
@@ -23,16 +23,18 @@
 
   <%# Alinear los botones a la derecha. %>
   <div class="col-lg-1 d-flex justify-content-end">
-    <%= link_to user, title: t('acciones.show') do %>
+    <%= link_to user, title: t('acciones.show'), class: 'ml-auto' do %>
       <span class="fas fa-eye fa-fw"></span>
     <% end %>
 
-    <%= link_to edit_user_path(user), title: t('acciones.edit') do %>
+    <%= link_to edit_user_path(user), title: t('acciones.edit'),
+      class: 'ml-auto'  do %>
       <span class="fas fa-edit fa-fw"></span>
     <% end %>
 
     <%= link_to user, title: t('acciones.destroy'), method: :delete,
-          data: { confirm: t('confirmacion') } do %>
+      class: 'ml-auto',
+      data: { confirm: t('confirmacion') } do %>
       <span class="fas fa-trash fa-fw"></span>
     <% end %>
   </div>
