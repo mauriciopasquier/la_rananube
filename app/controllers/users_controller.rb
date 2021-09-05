@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     authorize User
 
     # Autorización.
-    @users = policy_scope(User).order(created_at: :asc)
+    @users = policy_scope(User).order(created_at: :desc)
 
     # Paginación.
     @pagy, @users = pagy(@users)
@@ -26,6 +26,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        # TODO, Resaltar a le usuarie recién creade en el index, o redirigir al show.
         format.html { redirect_to users_path, notice: t('.notice') }
       else
         format.html { render :new }

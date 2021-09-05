@@ -1,5 +1,13 @@
-<h1>New user</h1>
+<% content_for(:titulo_de_pagina) { t('.titulo') } %>
 
-<%= render 'form', user: @user %>
+<%= render 'shared/botonera' do %>
+  <div class="col-lg">
+    <%= link_to t('volver'), :back, class: 'btn btn-outline-secondary' %>
+  </div>
+<% end %>
 
-<%= link_to 'Back', users_path %>
+<div class="row">
+  <div class="col-lg-4">
+    <%= render 'form', user: @user %>
+  </div>
+</div>

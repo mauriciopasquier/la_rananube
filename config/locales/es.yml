@@ -30,3 +30,6 @@ es:
       notice: Usuario eliminado
     roles:
       notice: Rol agregado
+    new:
+      titulo: Creando nuevo usuario
+  volver: Volver
