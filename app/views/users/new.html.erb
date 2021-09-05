@@ -1,10 +1,6 @@
 <% content_for(:titulo_de_pagina) { t('.titulo') } %>
 
-<%= render 'shared/botonera' do %>
-  <div class="col-lg">
-    <%= link_to t('volver'), :back, class: 'btn btn-outline-secondary' %>
-  </div>
-<% end %>
+<%= render 'shared/botonera' %>
 
 <div class="row">
   <div class="col-lg">

@@ -1,16 +1,8 @@
 <% content_for(:titulo_de_pagina) { User.model_name.human.pluralize } %>
 
-<%= render 'shared/botonera' do %>
+<%= render 'shared/botonera', paginacion: @pagy do %>
   <% if policy(User).new? %>
-    <div class="col-lg">
-      <%= link_to t('.new'), new_user_path, class: 'btn btn-outline-primary' %>
-    </div>
-  <% end %>
-
-  <% if @pagy.pages > 1 %>
-    <div class="col-lg-2">
-      <%== pagy_bootstrap_nav(@pagy) %>
-    </div>
+    <%= link_to t('.new'), new_user_path, class: 'btn btn-outline-primary' %>
   <% end %>
 <% end %>
 

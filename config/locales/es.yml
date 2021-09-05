@@ -35,4 +35,5 @@ es:
     edit:
       titulo: Editando %{nombre}
   volver: Volver
-  ver: Ver %{modelo}
+  show: Ver %{modelo}
+  edit: Editar %{modelo}

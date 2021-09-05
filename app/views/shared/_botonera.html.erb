@@ -1,4 +1,15 @@
 <div class='row mb-2'>
-  <%# Renderiza el bloque que pase cada vista. %>
-  <%= yield %>
+  <div class="col-lg">
+    <%= link_to t('volver'), :back, class: 'btn btn-outline-secondary' %>
+
+    <%# Renderiza el bloque que pase cada vista. %>
+    <%= yield %>
+  </div>
+
+  <%# Sólo agregar esto si hay paginación y tenemos más de una página. %>
+  <% if local_assigns[:paginacion] && paginacion.pages > 1 %>
+    <div class="col-lg-2">
+      <%== pagy_bootstrap_nav(paginacion) %>
+    </div>
+  <% end %>
 </div>
