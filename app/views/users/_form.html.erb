@@ -1,48 +1,54 @@
 <%= form_with(model: user) do |f| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-        <% user.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+  <div class="form-group row">
+    <div class="col-lg-4">
+      <%= f.label :nombre, class: 'sr-only' %>
+      <%= f.text_field :nombre, autofocus: true,
+        placeholder: User.human_attribute_name(:nombre),
+        required: true, class: 'form-control form-control' %>
     </div>
-  <% end %>
 
-  <div class="form-group">
-    <%= f.label :nombre, class: 'sr-only' %>
-    <%= f.text_field :nombre, autofocus: true,
-      placeholder: User.human_attribute_name(:nombre),
-      required: true, class: 'form-control form-control' %>
+    <%= mensaje_de_error user, :nombre %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :email, class: 'sr-only' %>
-    <%= f.email_field :email,
-      placeholder: User.human_attribute_name(:email),
-      required: true, class: 'form-control form-control' %>
+  <div class="form-group row">
+    <div class="col-lg-4">
+      <%= f.label :email, class: 'sr-only' %>
+      <%= f.email_field :email,
+        placeholder: User.human_attribute_name(:email),
+        required: true, class: 'form-control form-control' %>
+    </div>
+
+    <%= mensaje_de_error user, :email %>
   </div>
 
   <%# No pedimos el password durante la edición. %>
   <% if user.new_record? %>
-    <div class="form-group">
-      <%= f.label :password, class: 'sr-only' %>
-      <%= f.password_field :password,
-        placeholder: User.human_attribute_name(:password),
-        required: true, class: 'form-control form-control' %>
+    <div class="form-group row">
+      <div class="col-lg-4">
+        <%= f.label :password, class: 'sr-only' %>
+        <%= f.password_field :password,
+          placeholder: User.human_attribute_name(:password),
+          required: true, class: 'form-control form-control' %>
+      </div>
+
+      <%= mensaje_de_error user, :password %>
     </div>
 
-    <div class="form-group">
-      <%= f.label :password_confirmation, class: 'sr-only' %>
-      <%= f.password_field :password_confirmation,
-        placeholder: User.human_attribute_name(:password_confirmation),
-        required: true, class: 'form-control form-control' %>
+    <div class="form-group row">
+      <div class="col-lg-4">
+        <%= f.label :password_confirmation, class: 'sr-only' %>
+        <%= f.password_field :password_confirmation,
+          placeholder: User.human_attribute_name(:password_confirmation),
+          required: true, class: 'form-control form-control' %>
+      </div>
+
+      <%= mensaje_de_error user, :password_confirmation %>
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit class: 'btn btn-outline-success' %>
+  <div class="form-group row">
+    <div class="col-lg">
+      <%= f.submit class: 'btn btn-outline-success' %>
+    </div>
   </div>
 <% end %>

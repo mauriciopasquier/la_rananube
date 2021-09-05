@@ -36,6 +36,19 @@ module ApplicationHelper
     end
   end
 
+  # Para mostrar los mensajes de error de cada atributo al lado del input.
+  def mensaje_de_error(registro, atributo)
+    return unless registro.errors[atributo].any?
+
+    capture do
+      content_tag(:div, class: 'col-lg') do
+        content_tag(:small, class: 'text-danger') do
+          registro.errors.full_messages_for(atributo).to_sentence
+        end
+      end
+    end
+  end
+
   private
 
   # Determina las clases de cada notificación, usado en `notificaciones`, según

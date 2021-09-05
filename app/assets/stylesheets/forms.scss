@@ -1,0 +1,8 @@
+// Estilos para los formularios.
+
+// Cuando hay errores rails agrega esta clase a cada campo con errores.
+.field_with_errors {
+  input {
+    border-color: theme-color('danger');
+  }
+}
