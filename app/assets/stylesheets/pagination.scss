@@ -1,0 +1,8 @@
+// Estilos para el helper de paginación.
+
+.pagy-bootstrap-nav {
+  .pagination {
+    // Eliminar margen interno, generarlo desde el html.
+    margin-bottom: 0;
+  }
+}
