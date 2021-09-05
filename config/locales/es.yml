@@ -32,4 +32,7 @@ es:
       notice: Rol agregado
     new:
       titulo: Creando nuevo usuario
+    edit:
+      titulo: Editando %{nombre}
   volver: Volver
+  ver: Ver %{modelo}
