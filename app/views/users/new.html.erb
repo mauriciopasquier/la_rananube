@@ -1,0 +1,9 @@
+<% content_for(:titulo_de_pagina) { t('.titulo') } %>
+
+<%= render 'shared/botonera' %>
+
+<div class="row">
+  <div class="col-lg">
+    <%= render 'form', user: @user %>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 <%# Barra de navegación general. %>
-<nav class="navbar navbar-dark bg-dark fixed-top navbar-expand-md justify-content-between">
+<header class="navbar navbar-dark bg-dark fixed-top navbar-expand-md justify-content-between">
   <div>
     <div class="navbar-brand">
       <%= link_to Setting.url do %>
@@ -24,6 +24,7 @@
     <%# Se convierte en un panel offcanvas en pantallas chiquitas. %>
     <div class="collapse navbar-collapse panel-offcanvas">
       <%# Menú de navegación. %>
+      <%# TODO, mover el chequeo de usuarie logueade acá? %>
       <div class="navbar-nav">
         <%= render 'layouts/menu' %>
       </div>
@@ -37,4 +38,4 @@
       </div>
     </div>
   </div>
-</nav>
+</header>

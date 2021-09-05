@@ -5,21 +5,27 @@ ruby '3.0.0'
 # No es más default en ruby 3.0.0.
 gem 'rexml'
 
-# Backend
+# Backend.
 gem 'rails', '~> 6.1.0'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'jbuilder', '~> 2.7'
 gem 'rails-settings-cached'
 
-# UI
+# UI.
+gem 'sass-rails'
+gem 'importmap-rails'
+gem 'stimulus-rails'
 gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
+gem 'pagy'
 
-# Autenticación
+# Autenticación, autorización.
 gem 'devise'
+gem 'enumerize'
+gem 'pundit'
 
-# I18n
+# I18n.
 gem 'rails-i18n'
 gem 'devise-i18n'
 
@@ -31,6 +37,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
   gem 'minitest-rails'
+  # Factories en vez de fixtures.
+  gem 'factory_bot_rails'
 
   # Usar pry como consola.
   gem 'pry-rails'

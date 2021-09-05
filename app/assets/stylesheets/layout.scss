@@ -1,11 +1,10 @@
 // Estilos generales de layout.
 
-
 // Hacer distancia entre el contenido y la barra de navegación.
 body {
   padding-top: $navbar-height + 0.5rem;
 
-  nav.navbar {
+  .navbar {
     height: $navbar-height;
   }
 }

@@ -110,12 +110,21 @@ GEM
       warden (~> 1.2.3)
     devise-i18n (1.9.2)
       devise (>= 4.7.1)
+    enumerize (2.4.0)
+      activesupport (>= 3.2)
     erubi (1.10.0)
+    factory_bot (6.1.0)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.1.0)
+      factory_bot (~> 6.1.0)
+      railties (>= 5.0.0)
     ffi (1.14.2)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
+    importmap-rails (0.1.1)
+      rails (>= 6.0.0)
     jbuilder (2.10.1)
       activesupport (>= 5.0.0)
     listen (3.4.0)
@@ -129,7 +138,9 @@ GEM
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     method_source (1.0.0)
-    mimemagic (0.3.5)
+    mimemagic (0.3.10)
+      nokogiri (~> 1)
+      rake
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.2)
@@ -144,6 +155,7 @@ GEM
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
+    pagy (4.10.1)
     parallel (1.20.1)
     parser (3.0.0.0)
       ast (~> 2.4.1)
@@ -159,6 +171,8 @@ GEM
     public_suffix (4.0.6)
     puma (5.1.1)
       nio4r (~> 2.0)
+    pundit (2.1.1)
+      activesupport (>= 3.0.0)
     rack (2.2.3)
     rack-mini-profiler (2.3.0)
       rack (>= 1.2.0)
@@ -224,6 +238,16 @@ GEM
       rubocop (>= 0.90.0, < 2.0)
     ruby-progressbar (1.11.0)
     rubyzip (2.3.0)
+    sass-rails (6.0.0)
+      sassc-rails (~> 2.1, >= 2.1.1)
+    sassc (2.4.0)
+      ffi (~> 1.9)
+    sassc-rails (2.1.2)
+      railties (>= 4.0.0)
+      sassc (>= 2.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
@@ -239,7 +263,10 @@ GEM
     sshkit (1.21.1)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
+    stimulus-rails (0.3.0)
+      rails (>= 6.0.0)
     thor (1.0.1)
+    tilt (2.0.10)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -281,13 +308,18 @@ DEPENDENCIES
   capybara (>= 3.26)
   devise
   devise-i18n
+  enumerize
+  factory_bot_rails
+  importmap-rails
   jbuilder (~> 2.7)
   listen (~> 3.3)
   minitest-rails
+  pagy
   pg (~> 1.1)
   pry-byebug
   pry-rails
   puma (~> 5.0)
+  pundit
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.0)
   rails-i18n
@@ -295,8 +327,10 @@ DEPENDENCIES
   rexml
   rubocop
   rubocop-rails
+  sass-rails
   selenium-webdriver
   spring
+  stimulus-rails
   turbolinks (~> 5)
   web-console (>= 4.1.0)
   webdrivers

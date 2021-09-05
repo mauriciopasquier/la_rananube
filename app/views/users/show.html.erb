@@ -1,0 +1,39 @@
+<% content_for(:titulo_de_pagina) { @user.nombre } %>
+
+<%= render 'shared/botonera' do %>
+  <%= link_to t('edit', modelo: User.model_name.human), edit_user_path(@user),
+    class: 'btn btn-outline-warning' %>
+<% end %>
+
+<div class="usuarie">
+  <div class="row">
+    <div class="col-lg">
+      <h2>
+        <%= @user.nombre %>
+        <small class="text-muted"><%= @user.email %></small>
+      </h2>
+    </div>
+  </div>
+
+  <% if @user.unconfirmed_email? %>
+    <div class="row">
+      <div class="col-lg">
+        <h5>
+          Nuevo email (todavía sin confirmar)
+          <small class="text-muted"><%= @user.unconfirmed_email %></small>
+        </h5>
+      </div>
+    </div>
+  <% end %>
+
+  <% if @user.roles.any? %>
+    <div class="row">
+      <div class="col-lg">
+        <h5>
+          <%= t('.roles') %>
+          <small class="text-muted"><%= @user.roles.map(&:text).join(', ') %></small>
+        </h5>
+      </div>
+    </div>
+  <% end %>
+</div>

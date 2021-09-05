@@ -1,0 +1,41 @@
+<%# Identificador único de cada fila, útil en los tests. %>
+<div class="row item" id=<%= "user-#{user.id}" %>>
+  <div class="col-lg">
+    <%= user.email %>
+  </div>
+
+  <div class="col-lg">
+    <%= user.nombre %>
+  </div>
+
+  <% User.roles.values.each do |rol| %>
+    <%# Impedir quitarse a unx mismx el rol de administración. %>
+    <% disabled = rol == :administracion && user == current_user %>
+
+    <div class="col-lg-2"
+      data-controller="roles" data-roles-url-value="<%= roles_user_path(user) %>">
+
+      <%= check_box_tag "roles[#{rol}]", '1', user.roles.include?(rol),
+        title: rol.text, disabled: disabled,
+        data: { action: 'roles#update', roles_target: 'checkbox' } %>
+    </div>
+  <% end %>
+
+  <%# Alinear los botones a la derecha. %>
+  <div class="col-lg-1 d-flex justify-content-end">
+    <%= link_to user, title: t('acciones.show'), class: 'ml-auto' do %>
+      <span class="fas fa-eye fa-fw"></span>
+    <% end %>
+
+    <%= link_to edit_user_path(user), title: t('acciones.edit'),
+      class: 'ml-auto'  do %>
+      <span class="fas fa-edit fa-fw"></span>
+    <% end %>
+
+    <%= link_to user, title: t('acciones.destroy'), method: :delete,
+      class: 'ml-auto',
+      data: { confirm: t('confirmacion') } do %>
+      <span class="fas fa-trash fa-fw"></span>
+    <% end %>
+  </div>
+</div>

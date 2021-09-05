@@ -1,20 +1,19 @@
 <%= render layout: 'layouts/full_screen' do %>
   <h1><%= t('.sign_in') %></h1>
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= form_with(model: resource, url: session_path(resource_name), class: 'login') do |f| %>
     <div class="form-group">
       <%= f.label :email, class: 'sr-only' %>
       <%= f.email_field :email, autofocus: true, autocomplete: 'email',
         placeholder: resource.class.human_attribute_name(:email),
-        class: 'form-control form-control-lg' %>
+        required: true, class: 'form-control form-control-lg' %>
     </div>
 
     <div class="form-group">
       <%= f.label :password, class: 'sr-only' %>
-      <%= f.password_field :password,
-        autocomplete: 'current-password',
+      <%= f.password_field :password, autocomplete: 'current-password',
         placeholder: resource.class.human_attribute_name(:password),
-        class: 'form-control form-control-lg' %>
+        required: true, class: 'form-control form-control-lg' %>
     </div>
 
     <% if devise_mapping.rememberable? %>

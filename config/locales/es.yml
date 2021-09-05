@@ -1,7 +1,39 @@
 ---
 es:
+  acciones:
+    destroy: Eliminar
+    edit: Editar
+    show: Ver
+  confirmacion: ¿Seguro? Es irreversible
   devise:
     menu:
       session_link:
         sign_in: Entrar
         sign_out: Salir
+  enumerize:
+    user:
+      roles:
+        administracion: Administración
+        clientes: Clientes
+  inicio:
+    index:
+      titulo: Inicio
+  sin_autorizacion: No tenés permisos para realizar esta acción.
+  users:
+    index:
+      new: Nuevo Usuario
+    update:
+      notice: Cambios guardados
+    create:
+      notice: Usuario creado
+    destroy:
+      notice: Usuario eliminado
+    roles:
+      notice: Rol agregado
+    new:
+      titulo: Creando nuevo usuario
+    edit:
+      titulo: Editando %{nombre}
+  volver: Volver
+  show: Ver %{modelo}
+  edit: Editar %{modelo}

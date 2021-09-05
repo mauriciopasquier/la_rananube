@@ -1,0 +1,22 @@
+<% content_for(:titulo_de_pagina) { User.model_name.human.pluralize } %>
+
+<%= render 'shared/botonera', paginacion: @pagy do %>
+  <% if policy(User).new? %>
+    <%= link_to t('.new'), new_user_path, class: 'btn btn-outline-primary' %>
+  <% end %>
+<% end %>
+
+<div class="lista">
+  <div class="row encabezado lead">
+    <div class="col-lg"><%= User.human_attribute_name(:email) %></div>
+    <div class="col-lg"><%= User.human_attribute_name(:nombre) %></div>
+
+    <% User.roles.values.map(&:text).each do |rol| %>
+      <div class="col-lg-2"><%= rol %></div>
+    <% end %>
+
+    <div class="col-lg-1 d-flex justify-content-end"></div>
+  </div>
+
+  <%= render @users %>
+</div>

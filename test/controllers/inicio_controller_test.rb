@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class InicioControllerTest < ActionDispatch::IntegrationTest
+describe InicioController do
   describe '#index' do
     it 'hay un inicio' do
       get root_url

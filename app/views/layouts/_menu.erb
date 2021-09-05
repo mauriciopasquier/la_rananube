@@ -1,30 +1,12 @@
 <%# Menú de navegación para la barra superior. %>
-<div class="dropdown">
-  <%= link_to 'Una sección', '#',
-    class: 'nav-item nav-link dropdown-toggle',
-    data: { toggle: 'dropdown' } %>
+<% if user_signed_in? %>
+  <div class="dropdown">
+    <%= link_to 'Administración', '#',
+      class: 'nav-item nav-link dropdown-toggle',
+      data: { toggle: 'dropdown' } %>
 
-  <div class="dropdown-menu dropdown-menu-right">
-    <%= link_to 'Subsección #1', '#', class: 'dropdown-item' %>
-    <%= link_to 'Subsección #2', '#', class: 'dropdown-item' %>
-
-    <div class="dropdown-divider"></div>
-
-    <%= link_to 'Subsección #3', '#', class: 'dropdown-item' %>
+    <div class="dropdown-menu dropdown-menu-right">
+      <%= link_to 'Usuarios', users_path, class: 'dropdown-item' %>
+    </div>
   </div>
-</div>
-
-<div class="dropdown">
-  <%= link_to 'Otra sección', '#',
-    class: 'nav-item nav-link dropdown-toggle',
-    data: { toggle: 'dropdown' } %>
-
-  <div class="dropdown-menu dropdown-menu-right">
-    <%= link_to 'Subsección #1', '#', class: 'dropdown-item' %>
-    <%= link_to 'Subsección #2', '#', class: 'dropdown-item' %>
-
-    <div class="dropdown-divider"></div>
-
-    <%= link_to 'Subsección #3', '#', class: 'dropdown-item' %>
-  </div>
-</div>
+<% end %>

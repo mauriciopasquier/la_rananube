@@ -9,9 +9,6 @@ import * as ActiveStorage from '@rails/activestorage'
 import 'channels'
 import 'bootstrap'
 
-// Importar los estilos acá.
-import '../stylesheets/application'
-
 // Inicializar librerías en cada page load.
 document.addEventListener('turbolinks:load', () => {
   $('[data-toggle="tooltip"]').tooltip()
@@ -21,3 +18,5 @@ document.addEventListener('turbolinks:load', () => {
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+import 'controllers'
