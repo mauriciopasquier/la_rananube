@@ -5,29 +5,33 @@
     class: 'btn btn-outline-warning' %>
 <% end %>
 
-<div class="usuarie">
-  <p>
-    <strong>Email:</strong>
-    <%= @user.email %>
-  </p>
-
-  <% if @user.unconfirmed_email? %>
-    <p>
-      <strong>Nuevo email (todavía sin confirmar):</strong>
-      <%= @user.unconfirmed_email %>
-    </p>
-  <% end %>
-
-  <p>
-    <strong>Nombre:</strong>
-    <%= @user.nombre %>
-  </p>
-
-  <p>
-    <strong>Roles:</strong>
-    <%= @user.roles.map(&:text).join(', ') %>
-  </p>
-
-  <%= link_to 'Edit', edit_user_path(@user) %> |
-  <%= link_to 'Back', users_path %>
+<div class="row">
+  <div class="col-lg">
+    <h2>
+      <%= @user.nombre %>
+      <small class="text-muted"><%= @user.email %></small>
+    </h2>
+  </div>
 </div>
+
+<% if @user.unconfirmed_email? %>
+  <div class="row">
+    <div class="col-lg">
+      <h5>
+        Nuevo email (todavía sin confirmar)
+        <small class="text-muted"><%= @user.unconfirmed_email %></small>
+      </h5>
+    </div>
+  </div>
+<% end %>
+
+<% if @user.roles.any? %>
+  <div class="row">
+    <div class="col-lg">
+      <h5>
+        <%= t('.roles') %>
+        <small class="text-muted"><%= @user.roles.map(&:text).join(', ') %></small>
+      </h5>
+    </div>
+  </div>
+<% end %>
