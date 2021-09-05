@@ -74,5 +74,20 @@ class UsersTest < ApplicationSystemTestCase
       _(page).must_have_content I18n.t('users.destroy.notice')
       _(page).wont_have_content otre_usuarie.email
     end
+
+    it 'no se destruye a sí misme' do
+      visit users_path
+
+      within "#user-#{usuarie.id}" do
+        page.accept_confirm do
+          click_on I18n.t('acciones.destroy')
+        end
+      end
+
+      _(page).must_have_current_path users_path
+      _(page).wont_have_content I18n.t('users.destroy.notice')
+      _(page).must_have_content I18n.t('sin_autorizacion')
+      _(page).must_have_content usuarie.email
+    end
   end
 end

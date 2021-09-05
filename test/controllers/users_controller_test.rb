@@ -64,6 +64,16 @@ describe UsersController do
       must_redirect_to users_path
     end
 
+    it 'no se destruye a sí misme' do
+      _(lambda do
+        # Seteamos el referer porque se usa :back para volver de los errores de
+        # permisos.
+        delete user_path(usuarie), headers: { 'HTTP_REFERER' => users_path }
+      end).wont_differ 'User.count', -1
+
+      must_redirect_to users_path
+    end
+
     it 'modifica roles' do
       _(otre_usuarie.roles).wont_be :administracion?
 

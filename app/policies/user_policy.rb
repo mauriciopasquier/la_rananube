@@ -20,8 +20,9 @@ class UserPolicy < ApplicationPolicy
     user.roles.administracion?
   end
 
+  # No permitirles destruirse a sí mismes.
   def destroy?
-    user.roles.administracion?
+    user.roles.administracion? && user != record
   end
 
   # Reglas para las listas de usuaries.
