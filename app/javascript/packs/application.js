@@ -19,4 +19,7 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
+// Es más simple manejar las fuentes y otros archivos así con webpacker.
+import '../fonts'
+
 import 'controllers'

@@ -68,6 +68,11 @@ group :development do
   gem 'capistrano-rbenv', require: false
   gem 'capistrano3-puma', require: false
   gem 'capistrano-webpacker-precompile', require: false
+  gem 'capistrano-precompile-chooser', require: false
+  # Requeridas por net-ssh?
+  # https://github.com/net-ssh/net-ssh/issues/565
+  gem 'ed25519', require: false
+  gem 'bcrypt_pbkdf', require: false
 end
 
 group :test do

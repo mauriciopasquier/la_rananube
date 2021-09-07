@@ -27,7 +27,8 @@ append :linked_dirs,
   'tmp/cache',
   'tmp/sockets',
   'storage',
-  'public/packs'
+  'public/packs',
+  'public/assets'
 
 append :linked_files,
   fetch(:key_path)

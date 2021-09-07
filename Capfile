@@ -11,6 +11,8 @@ install_plugin Capistrano::SCM::Git
 require 'capistrano/rbenv'
 require 'capistrano/bundler'
 require 'capistrano/webpacker/precompile'
+ENV['PRECOMPILE_MODE'] = 'local'
+require 'capistrano/precompile_chooser'
 require 'capistrano/rails/migrations'
 
 # Servidor de aplicaciones. Debe estar después de rbenv.
