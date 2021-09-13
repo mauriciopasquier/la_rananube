@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         # TODO, Resaltar a le usuarie recién creade en el index, o redirigir al show.
-        format.html { redirect_to users_path, notice: t('.notice') }
+        format.html { redirect_to users_path, flash: { success: t('.success') } }
       else
         format.html { render :new }
       end
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: t('.notice') }
+        format.html { redirect_to @user, flash: { success: t('.success') } }
       else
         format.html { render :edit }
       end
@@ -53,6 +53,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        # FIXME, Convertir en notificaciones.
         format.json { render json: { notice: t('.notice') }, status: :ok }
       else
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -63,7 +64,7 @@ class UsersController < ApplicationController
   def destroy
     respond_to do |format|
       if @user.destroy
-        format.html { redirect_to users_url, notice: t('.notice') }
+        format.html { redirect_to users_url, flash: { success: t('.success') } }
       else
         format.html { redirect_to users_path }
       end

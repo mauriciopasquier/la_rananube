@@ -1,2 +1,8 @@
 <%# Notifiaciones generales del sistema. %>
-<div id="notificaciones"><%= notificaciones %></div>
+<% flash.each do |type, message| %>
+  <span hidden
+    data-controller="notificaciones"
+    data-notificaciones-tipo-value="<%= type %>"
+    data-notificaciones-mensaje-value="<%= message %>">
+  </span>
+<% end %>

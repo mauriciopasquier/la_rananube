@@ -23,11 +23,11 @@ es:
     index:
       new: Nuevo Usuario
     update:
-      notice: Cambios guardados
+      success: Cambios guardados
     create:
-      notice: Usuario creado
+      success: Usuario creado
     destroy:
-      notice: Usuario eliminado
+      success: Usuario eliminado
     roles:
       notice: Rol agregado
     new:
