@@ -14,28 +14,6 @@ module ApplicationHelper
     content_for :titulo_de_pagina
   end
 
-  # Genera alertas de notifiación para cada mensaje del sistema.
-  def notificaciones
-    capture do
-      flash.to_hash.slice('success', 'error', 'alert', 'notice').each do |tipo, mensaje|
-        concat(
-          # Determinar la clase según el tipo.
-          content_tag(:div, class: clases_notificacion(tipo)) do
-            concat(
-              # Botón de cerrar notificación.
-              content_tag(:button, class: 'close', data: { dismiss: 'alert' }) do
-                content_tag :span, '&times;'.html_safe
-              end
-            )
-
-            # TODO, Verificar que no necesite `.html_safe`.
-            concat mensaje
-          end
-        )
-      end
-    end
-  end
-
   # Para mostrar los mensajes de error de cada atributo al lado del input.
   def mensaje_de_error(registro, atributo)
     return unless registro.errors[atributo].any?
@@ -47,22 +25,5 @@ module ApplicationHelper
         end
       end
     end
-  end
-
-  private
-
-  # Determina las clases de cada notificación, usado en `notificaciones`, según
-  # su tipo.
-  def clases_notificacion(tipo)
-    base = %w[alert alert-dismissable fade show]
-
-    base.push({
-      success: 'alert-success',
-      error: 'alert-danger',
-      alert: 'alert-danger',
-      notice: 'alert-success'
-    }.stringify_keys[tipo.to_s] || tipo.to_s)
-
-    base.join ' '
   end
 end

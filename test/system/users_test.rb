@@ -33,7 +33,7 @@ class UsersTest < ApplicationSystemTestCase
       click_on I18n.t('helpers.submit.create', model: User.model_name.human)
 
       _(page).must_have_current_path users_path
-      _(page).must_have_content I18n.t('users.create.notice')
+      _(page).must_have_content I18n.t('users.create.success')
       _(page).must_have_content user_params[:email]
     end
 
@@ -54,7 +54,7 @@ class UsersTest < ApplicationSystemTestCase
 
       click_on I18n.t('helpers.submit.update', model: User.model_name.human)
       _(page).must_have_current_path user_path(otre_usuarie)
-      _(page).must_have_content I18n.t('users.update.notice')
+      _(page).must_have_content I18n.t('users.update.success')
       _(page).must_have_content user_params[:email]
       _(page).must_have_content user_params[:nombre]
     end
@@ -71,7 +71,7 @@ class UsersTest < ApplicationSystemTestCase
       end
 
       _(page).must_have_current_path users_path
-      _(page).must_have_content I18n.t('users.destroy.notice')
+      _(page).must_have_content I18n.t('users.destroy.success')
       _(page).wont_have_content otre_usuarie.email
     end
 
@@ -85,7 +85,7 @@ class UsersTest < ApplicationSystemTestCase
       end
 
       _(page).must_have_current_path users_path
-      _(page).wont_have_content I18n.t('users.destroy.notice')
+      _(page).wont_have_content I18n.t('users.destroy.success')
       _(page).must_have_content I18n.t('sin_autorizacion')
       _(page).must_have_content usuarie.email
     end

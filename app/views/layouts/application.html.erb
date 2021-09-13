@@ -18,11 +18,10 @@
   </head>
 
   <body>
+    <%= render 'layouts/notificaciones' %>
     <%= render 'layouts/navbar' %>
 
     <div class="container-fluid text-dark">
-      <div id="notificaciones"><%= notificaciones %></div>
-
       <%= yield %>
     </div>
   </body>
