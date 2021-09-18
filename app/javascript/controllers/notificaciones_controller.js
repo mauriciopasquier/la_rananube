@@ -1,4 +1,4 @@
-import { Controller } from 'stimulus'
+import { Controller } from '@hotwired/stimulus'
 // TODO, Parece que está deprecated, habría que reemplazarla.
 import Noty from 'noty'
 import 'noty/src/noty.scss'
