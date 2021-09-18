@@ -21,7 +21,7 @@ class UsersTest < ApplicationSystemTestCase
     it 'crea usuaries' do
       visit users_path
 
-      click_on I18n.t('users.index.new')
+      click_on I18n.t('shared.botonera.new', modelo: User.model_name.human)
 
       user_params = attributes_for :user
       fill_in User.human_attribute_name(:email), with: user_params[:email]

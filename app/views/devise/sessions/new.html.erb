@@ -1,5 +1,5 @@
 <%= render layout: 'layouts/full_screen' do %>
-  <h1><%= t('.sign_in') %></h1>
+  <h1><%= t('devise.sessions.new.sign_in') %></h1>
 
   <%= form_with(model: resource, url: session_path(resource_name), class: 'login') do |f| %>
     <div class="form-group">
@@ -24,7 +24,7 @@
     <% end %>
 
     <div class="form-group">
-      <%= f.submit t('.sign_in'), class: 'form-control btn btn-outline-success' %>
+      <%= f.submit t('devise.sessions.new.sign_in'), class: 'form-control btn btn-outline-success' %>
     </div>
   <% end %>
 <% end %>

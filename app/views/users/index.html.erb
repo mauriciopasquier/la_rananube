@@ -2,7 +2,7 @@
 
 <%= render 'shared/botonera', paginacion: @pagy do %>
   <% if policy(User).new? %>
-    <%= link_to t('.new'), new_user_path, class: 'btn btn-outline-primary' %>
+    <%= link_to t('.new', modelo: User.model_name.human), new_user_path, class: 'btn btn-outline-primary' %>
   <% end %>
 <% end %>
 
