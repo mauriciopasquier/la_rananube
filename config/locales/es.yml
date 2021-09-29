@@ -20,8 +20,6 @@ es:
       titulo: Inicio
   sin_autorizacion: No tenés permisos para realizar esta acción.
   users:
-    index:
-      new: Nuevo Usuario
     update:
       success: Cambios guardados
     create:
@@ -34,6 +32,13 @@ es:
       titulo: Creando nuevo usuario
     edit:
       titulo: Editando %{nombre}
+  shared:
+    botonera:
+      new: Crear %{modelo}
   volver: Volver
   show: Ver %{modelo}
   edit: Editar %{modelo}
+  layouts:
+    menu:
+      administracion: Administración
+      usuaries: Usuarios
