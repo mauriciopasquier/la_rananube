@@ -1,5 +1,5 @@
 # Configuración de deploy.
-lock '~> 3.14.1'
+lock '~> 3.16'
 
 set :application, 'la_rananube'
 set :repo_url, 'git@github.com:mauriciopasquier/la_rananube.git'
