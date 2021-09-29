@@ -38,3 +38,7 @@ es:
   volver: Volver
   show: Ver %{modelo}
   edit: Editar %{modelo}
+  layouts:
+    menu:
+      administracion: Administración
+      usuaries: Usuarios

@@ -18,9 +18,9 @@ class NavegacionTest < ApplicationSystemTestCase
       _(page).must_have_content 'Administración'
     end
 
-    it 'hay menú de Usuarixs' do
-      click_on 'Administración'
-      click_on 'Usuarios'
+    it 'hay menú de Usuaries' do
+      click_on I18n.t('layouts.menu.administracion')
+      click_on I18n.t('layouts.menu.usuaries')
 
       _(page).must_have_current_path users_path
     end
