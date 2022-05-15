@@ -1,4 +1,12 @@
 #!/usr/bin/env ruby
+
+# Iniciar reporte de coverage. Debe iniciarse antes de cargar el resto de la
+# aplicación.
+if ENV['COVERAGE']
+  require 'simplecov'
+  SimpleCov.start 'rails'
+end
+
 load File.expand_path("spring", __dir__)
 APP_PATH = File.expand_path('../config/application', __dir__)
 require_relative "../config/boot"

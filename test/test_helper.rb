@@ -1,6 +1,18 @@
 # Configuración de tests general.
 
 ENV['RAILS_ENV'] ||= 'test'
+
+# Iniciar reporte de coverage. Debe iniciarse antes de cargar el resto de la
+# aplicación.
+if ENV['COVERAGE']
+  require 'simplecov'
+  SimpleCov.start 'rails'
+  Rails.application.eager_load!
+
+  # SimpleCov no funciona con muchos workers a la vez.
+  ENV['PARALLEL_WORKERS'] = '1'
+end
+
 require_relative '../config/environment'
 require 'rails/test_help'
 require 'minitest/pride'

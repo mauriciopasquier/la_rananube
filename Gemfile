@@ -80,4 +80,5 @@ group :test do
   gem 'capybara', '>= 3.26'
   gem 'webdrivers'
   gem 'selenium-webdriver'
+  gem 'simplecov', require: false
 end
